@@ -17,7 +17,7 @@ export default function NewsDetail({ route, navigation }) {
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=845bc8a0f6b042c7808b61d7ae0242ff"
+      "https://newsapi.org/v2/top-headlines?country=br&category=technology&apiKey=845bc8a0f6b042c7808b61d7ae0242ff"
     )
       .then((response) => response.json())
       .then((json) => setAllPostData(json.articles))
@@ -25,7 +25,7 @@ export default function NewsDetail({ route, navigation }) {
       .finally(() => finishLoading(false));
   }, []);
 
-  return () => {
+  return (
     <View styles={styles.container}>
       <TouchableOpacity
         style={styles.button}
@@ -40,14 +40,14 @@ export default function NewsDetail({ route, navigation }) {
           <Text style={styles.title}>{selectedPost.title}</Text>
           <Image
             style={styles.storyimage}
-            srouce={{ uri: selectedPost.urlToImage }}
+            source={{ uri: selectedPost.urlToImage }}
           />
           <Text style={styles.blurb}>{selectedPost.description}</Text>
           <Text style={styles.content}>{selectedPost.content}</Text>
         </ScrollView>
       )}
-    </View>;
-  };
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -11,6 +11,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import NewsDetail from "./NewsDetail";
 import About from "./About";
+import QuotePage from "./Quote";
+import CatalogPage from "./Catalog";
 
 const Stack = createStackNavigator();
 
@@ -27,14 +29,16 @@ export default function App() {
           name="Globomantics"
           component={HomePage}
           options={{
-            header: () => <Header headerDisplay="Globomantics" />,
+            header: () => (
+              <Header headerDisplay="Alexandre Queiroz Marketing Digital" />
+            ),
           }}
         ></Stack.Screen>
         <Stack.Screen
           name="NewsDetail"
           component={NewsDetail}
           options={{
-            header: () => <Header headerDisplay="News" />,
+            header: () => <Header headerDisplay="NewsDetail" />,
           }}
         ></Stack.Screen>
         <Stack.Screen
@@ -42,6 +46,20 @@ export default function App() {
           component={About}
           options={{
             header: () => <Header headerDisplay="About" />,
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="Quote"
+          component={QuotePage}
+          options={{
+            header: () => <Header headerDisplay="Quote" />,
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="CatalogPage"
+          component={CatalogPage}
+          options={{
+            header: () => <Header headerDisplay="Catalog Page" />,
           }}
         ></Stack.Screen>
       </Stack.Navigator>

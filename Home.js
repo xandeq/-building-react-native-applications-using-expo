@@ -14,7 +14,7 @@ export default function HomePage({ navigation }) {
   const [newsData, setData] = useState([]);
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=845bc8a0f6b042c7808b61d7ae0242ff"
+      "https://newsapi.org/v2/top-headlines?country=br&category=technology&apiKey=845bc8a0f6b042c7808b61d7ae0242ff"
     )
       .then((response) => response.json())
       .then((json) => setData(json.articles))
@@ -40,7 +40,7 @@ export default function HomePage({ navigation }) {
     <View style={styles.container}>
     <Text>Articles</Text>
     {dataLoading ? <ActivityIndicator /> : (
-        <FlatList data={newsData} keyExtractor={item => item.url} renderItem={ storyItem } />
+        <FlatList data={newsData} keyExtractor={item => item.url} renderItem={ storyItem } contentContainerStyle={{ paddingBottom: 20 }} />
     )}
     </View>
   );
